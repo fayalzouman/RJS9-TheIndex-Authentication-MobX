@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { observer } from "mobx-react";
+import authStore from "../stores/authStore";
 
 class Login extends Component {
   state = {
@@ -13,7 +15,7 @@ class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    alert("I DON'T WORK YET");
+    authStore.login(this.state);
   };
 
   render() {
@@ -62,4 +64,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default observer(Login);
