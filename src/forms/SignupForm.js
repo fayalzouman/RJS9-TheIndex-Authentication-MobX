@@ -16,7 +16,7 @@ class Signup extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    authStore.signup(this.state);
+    authStore.signup(this.state, this.props.history);
   };
 
   render() {

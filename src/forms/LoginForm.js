@@ -15,7 +15,7 @@ class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    authStore.login(this.state);
+    authStore.login(this.state, this.props.history);
   };
 
   render() {

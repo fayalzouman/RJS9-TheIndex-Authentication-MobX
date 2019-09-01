@@ -14,7 +14,7 @@ class AuthStore {
     }
   };
 
-  login = async userData => {
+  login = async (userData, history) => {
     //i had history as a parameter
     try {
       const res = await axios.post(
@@ -23,14 +23,15 @@ class AuthStore {
       );
       const user = res.data;
       this.setUser(user.token);
-      //history.replace("/");
+      history.replace("/");
       console.log("[login from appstore] done");
     } catch (err) {
-      console.error(err.response.data);
+      console.log(err);
+      console.error(err);
     }
   };
 
-  signup = async userData => {
+  signup = async (userData, history) => {
     //i had history as a parameter
     try {
       const res = await axios.post(
@@ -40,7 +41,7 @@ class AuthStore {
       const user = res.data;
       //this.user = jwt_decode(user.token);
       this.setUser(user.token);
-      // this.props.history.replace("/");
+      this.props.history.replace("/");
       console.log("[sign up from appstore] done");
     } catch (err) {
       console.error(err);
